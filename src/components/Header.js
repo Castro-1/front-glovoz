@@ -15,10 +15,6 @@ import {
 export default function Header() {
   const [user] = useAuthState(auth);
   const [active, setActive] = useState(false);
-  const [goToHome, setGoToHome] = useState(false);
-  // if (goToHome) {
-  //   return <Navigate to="/" />;
-  // }
 
   const changeActive = () => setActive((prev) => !prev);
 
@@ -39,7 +35,7 @@ export default function Header() {
   return (
     <HeaderContainer>
       <StyledHeader>
-        <LogoContainer onClick={() => setGoToHome(true)}>
+        <LogoContainer onClick={() => console.log("Go home")}>
           <Image src={require("./icons/Glovoz png 1.png")} alt="Glovoz" />
         </LogoContainer>
         <UserContainer>

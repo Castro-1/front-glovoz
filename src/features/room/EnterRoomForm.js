@@ -1,9 +1,6 @@
 import { useState } from "react";
 import {
   RoomForm,
-  OptimusContainer,
-  AnimationImage,
-  ButtonContainer,
 } from "../../components/styles/StyledEnterRoom";
 import Button from "../../components/styles/Button";
 import Input from "../../components/styles/Input";
@@ -21,7 +18,6 @@ const EnterRoomForm = (props) => {
 
   const [roomId, setRoomId] = useState("");
   const [roomPassword, setRoomPassword] = useState("");
-  const [animate, setAnimate] = useState(false);
 
   const { data, refetch } = useGetRoomQuery({ roomId, password: roomPassword });
   const [addRoom] = useAddRoomMutation();
@@ -30,8 +26,6 @@ const EnterRoomForm = (props) => {
 
   const changeId = (ev) => setRoomId(ev.target.value);
   const changePassword = (ev) => setRoomPassword(ev.target.value);
-  const changeAnimate = (ev) => setAnimate(true);
-  const optimusImage = require("../../images/optimusPrime.png");
 
   const navigateToRoom = () => {
     navigate(`/room/${roomId}`);
@@ -76,7 +70,7 @@ const EnterRoomForm = (props) => {
         value={roomPassword}
         onChange={changePassword}
       />
-      <Button onClick={joinRoom} $mode="primary" onHover={changeAnimate}>
+      <Button onClick={joinRoom} $mode="primary">
         Crear / Unirse
       </Button>
     </RoomForm>
